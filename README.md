@@ -4,6 +4,7 @@ This is a sample app to demonstrate a bug in iOS 13/Xcode 11 beta versions
 Inside of this project, there is a static lib (libTestStaticLib.a) that was built with Xcode 10.2 with iOS Deployment Target set to 10.2
 This static lib has a class that has the following method:
 
+```
 - (NSString *) testAvailableCommand {
     NSString *message = @"";
     if (@available(iOS 11, *)) {
@@ -15,7 +16,7 @@ This static lib has a class that has the following method:
     }
     return message;
 }
-
+```
 
 # The problem
 If you run the app on a simulator with iOS 13 beta, you will see in the logs that the else block was hit and the incorrect message was returned.
